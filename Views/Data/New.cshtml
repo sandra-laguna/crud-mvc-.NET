@@ -1,0 +1,35 @@
+﻿@model MVCCrud.Models.ViewModels.DataViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm("New", "Data", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div>
+                @Html.LabelFor(d => d.Name)
+                @Html.TextBoxFor(d => d.Name, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Name, null, new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Email)
+                @Html.TextBoxFor(d => d.Email, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Email, null, new { @class = "text-danger" })
+            </div>
+            <div>
+                @Html.LabelFor(d => d.Birth_date)<br />
+                @Html.EditorFor(d => d.Birth_date, "", new { @class = "form-control" })<br />
+                @Html.ValidationMessageFor(d => d.Birth_date, null, new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <br />
+    <div>
+        <input value="Save" class="btn btn-primary" type="submit" />
+    </div>
+}
+

@@ -1,0 +1,41 @@
+﻿
+@model List<MVCCrud.Models.ViewModels.ListDataViewModel>
+@{
+    ViewBag.Title = "Data";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row text-right" style="padding:5px;">
+    <a href="~/Data/New" class="btn btn-primary">New</a>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Birth date</th>
+                <th></th>
+            </tr>
+
+            @foreach (var oElemento in Model)
+            {
+                <tr>
+                    <td>@oElemento.Id</td>
+                    <td>@oElemento.Name</td>
+                    <td>@oElemento.Email</td>
+                    <td>@oElemento.Birth_date</td>
+                    <td>
+                        <a class="btn btn-default" href="~/Data/Edit/@oElemento.Id">Edit</a>
+                        <a class="btn btn-danger" href="~/Data/Delete/@oElemento.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+
+</div>
